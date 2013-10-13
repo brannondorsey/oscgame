@@ -1,8 +1,6 @@
 #pragma once
 
 #include "ofMain.h"
-#include "GameHandler.h"
-#include "Player.h"
 
 class testApp : public ofBaseApp{
 	public:
@@ -19,7 +17,4 @@ class testApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-    
-        GameHandler gameHand;
-        
 };
