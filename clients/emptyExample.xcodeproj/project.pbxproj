@@ -91,6 +91,7 @@
 		F891B75A180B0CC10042602B /* GameHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameHandler.cpp; sourceTree = "<group>"; };
 		F891B75C180B0E520042602B /* DataHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataHandler.h; sourceTree = "<group>"; };
 		F891B75D180B10190042602B /* DataHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataHandler.cpp; sourceTree = "<group>"; };
+		F891B761180B13F00042602B /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Character.h; path = ../Character.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +199,7 @@
 				F891B75C180B0E520042602B /* DataHandler.h */,
 				F891B75D180B10190042602B /* DataHandler.cpp */,
 				F891B75A180B0CC10042602B /* GameHandler.cpp */,
+				F891B761180B13F00042602B /* Character.h */,
 				F891B759180B09A70042602B /* Player.h */,
 			);
 			path = src;

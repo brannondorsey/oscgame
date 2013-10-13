@@ -8,12 +8,13 @@
 
 #ifndef emptyExample_Header_h
 #define emptyExample_Header_h
+#include "Character.h"
 
 class Player{
     
 public:
     
-    id;
+    int id;
     Character character;
     
     void addCharacterToArena(Character character);

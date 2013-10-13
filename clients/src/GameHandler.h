@@ -9,10 +9,12 @@
 #ifndef emptyExample_GameHandler_h
 #define emptyExample_GameHandler_h
 #include "Player.h"
+#include "DataHandler.h"
 
 class GameHandler{
     
 public:
+    
     DataHandler dataHand;
     vector<Player> users;
     bool isPlaying;
@@ -27,7 +29,7 @@ public:
     void endGame();
     
 private:
-
+    void addCharacterToArena(Character character);
     
 };
 

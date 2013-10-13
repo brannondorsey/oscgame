@@ -8,8 +8,12 @@
 
 #include "DataHandler.h"
 
-bool DataHandler::newPlayerJoined();
-bool DataHandler::playerLeft();
+bool DataHandler::newPlayerJoined(){
+    
+}
+bool DataHandler::playerLeft(){
+    
+}
 
 Player DataHandler::getNewPlayer(const ofxOscMessage &  message);
 

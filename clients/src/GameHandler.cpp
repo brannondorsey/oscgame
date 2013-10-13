@@ -14,12 +14,12 @@ GameHandler::GameHandler(){
 
 void GameHandler::update(){
     if(dataHand.newPlayerJoined()){
-        gameHand.addPlayer(dataHand.getNewPlayer());
+        addPlayer(dataHand.getNewPlayer());
     }
     if(dataHand.playerLeft()){
-        gameHand.removePlayer(dataHand.getLeftPlayer());
+        removePlayer(dataHand.getLeftPlayer());
     }
-    if(gameHand.isPlaying){
+    if(isPlaying){
         
     }
 
@@ -38,7 +38,7 @@ void GameHandler::removePlayer(){
     
 }
 
-void GameHandler::startGameCountdown{
+void GameHandler::startGameCountdown(){
     
 }
 
