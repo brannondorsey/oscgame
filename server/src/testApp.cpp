@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-    gameHand = new GameHandler();
+    gameHand = GameHandler();
     gameHand.startGameCountdown();
 }
 
