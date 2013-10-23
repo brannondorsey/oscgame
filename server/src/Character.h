@@ -6,9 +6,9 @@
 //
 //
 
-#ifndef emptyExample_Character_h
-#define emptyExample_Character_h
-
+#ifndef _OF_CHARACTER
+#define _OF_CHARACTER
+#include "ofMain.h"
 
 class Character{
     

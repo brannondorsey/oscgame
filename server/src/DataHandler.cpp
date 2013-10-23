@@ -15,6 +15,14 @@ bool DataHandler::playerLeft(){
     
 }
 
-Player DataHandler::getNewPlayer(const ofxOscMessage &  message);
+Player& DataHandler::getNewPlayer(){
+//    return player;
+}
 
-void parseMessage();
+Player& DataHandler::getLeftPlayer(){
+//    return leftPlayer;
+}
+
+void parseMessage(){
+    
+}

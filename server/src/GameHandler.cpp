@@ -9,7 +9,7 @@
 #include "GameHandler.h"
 
 GameHandler::GameHandler(){
-    dataHand = new DataHandler();
+    dataHand = DataHandler();
 }
 
 void GameHandler::update(){
@@ -29,12 +29,12 @@ void GameHandler::display(){
     
 }
 
-void GameHandler::addPlayer(){
+void GameHandler::addPlayer(Player &player){
     
 }
 
 
-void GameHandler::removePlayer(){
+void GameHandler::removePlayer(Player &player){
     
 }
 

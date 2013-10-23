@@ -6,10 +6,12 @@
 //
 //
 
-#ifndef emptyExample_DataHandler_h
-#define emptyExample_DataHandler_h
+#ifndef _OF_DATAHANDLER
+#define _OF_DATAHANDLER
 
+#include "ofMain.h"
 #include "Player.h"
+#include "ofxOsc.h"
 
 class DataHandler{
     
@@ -20,12 +22,13 @@ public:
     bool newPlayerJoined();
     bool playerLeft();
     
-    Player getNewPlayer(const ofxOscMessage & message);
+    Player& getNewPlayer();
+    Player& getLeftPlayer();
     
     
     
 private:
-    
+//    Player player;
     void parseMessage();
     
 };

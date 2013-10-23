@@ -6,8 +6,10 @@
 //
 //
 
-#ifndef emptyExample_Header_h
-#define emptyExample_Header_h
+#ifndef _OF_PLAYER
+#define _OF_PLAYER
+
+#include "ofMain.h"
 #include "Character.h"
 
 class Player{
@@ -15,14 +17,11 @@ class Player{
 public:
     
     int id;
+    string name;
+    vector<ofPoint> points;
     Character character;
     
-    void addCharacterToArena(Character character);
-    
-    
-private:
-    
-    
+    void addCharacterToArena(const Character &character);
 };
 
 #endif

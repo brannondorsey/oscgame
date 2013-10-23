@@ -6,15 +6,17 @@
 //
 //
 
-#ifndef emptyExample_GameHandler_h
-#define emptyExample_GameHandler_h
-#include "Player.h"
-#include "DataHandler.h"
+#ifndef _OF_GAMEHANDLER
+#define _OF_GAMEHANDLER
 
-class GameHandler{
+#include "ofMain.h"
+
+#include "DataHandler.h"
+#include "Player.h"
+
+class GameHandler {
     
-public:
-    
+public:    
     DataHandler dataHand;
     vector<Player> users;
     bool isPlaying;
@@ -22,15 +24,14 @@ public:
     GameHandler();
     void update();
     void display();
-    void addPlayer();
-    void removePlayer();
+    void addPlayer(Player &player);
+    void removePlayer(Player &player);
     void startGameCountdown();
     void startNewGame();
     void endGame();
     
 private:
-    void addCharacterToArena(Character character);
-    
+        
 };
 
 

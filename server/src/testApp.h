@@ -1,8 +1,11 @@
 #pragma once
 
 #include "ofMain.h"
+#include "DataHandler.h"
 #include "GameHandler.h"
 #include "Player.h"
+#include "Character.h"
+
 
 class testApp : public ofBaseApp{
 	public:
