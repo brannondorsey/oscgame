@@ -21,7 +21,7 @@ class Location{
         void update();
         void draw();
     
-        void setPoint(int x, int y);
+        
         void setRadius(int _radius);
     
         bool inside(int x, int y);
@@ -29,13 +29,23 @@ class Location{
     
         float getRadius();
         
-        ofPoint getPoint();
+        int getX();
+        int getY();
+    
+        ofPoint getLoc();
     
     protected:
+
     
         int radius;
         bool bIsSet;
-        ofPoint point;
+    
+        ofPoint loc; //the x, y pos of the location
+        ofPoint point; //the center of the circle that represents the location
+    
+        void setLoc(int x, int y);
+        void setPoint(int x, int y);
+        ofPoint getPoint();
     
 };
 

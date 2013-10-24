@@ -19,10 +19,11 @@ class GameField{
     
         void update();
         void draw();
-        void addPoint(float x, float y);
-    
-        bool hasPoints();
+        void addLocation(float x, float y);
+            
+        bool hasLocations();
         bool inside(float x, float y);
+        bool removeLocation(int x, int y);
     
         int getWidth();
         int getHeight();
@@ -37,8 +38,9 @@ class GameField{
         int width;
         int height;
         int pointRadius;
+        int mx;
+        int my;
     
-        vector<ofPoint> points;
         vector<Location> locations;
     
         ofRectangle field;

@@ -32,13 +32,16 @@ void GameField::update(){
 void GameField::draw(){
     for(int i = 0; i < locations.size(); i++){
         locations[i].draw();
+        if(i < locations.size() - 1){
+            //COME BACK
+            ofLine(locations[i].getX(), locations[i].getY(), locations[i+1].getX(), locations[i+1].getY());
+        }
     }
 }
 
 //--------------------------------------------------------------
-void GameField::addPoint(float x, float y){
-    if(points.size() < maxPoints){
-        points.push_back(ofPoint(x, y));
+void GameField::addLocation(float x, float y){
+    if(locations.size() < maxPoints){
         Location loc;
         loc.set(x, y, pointRadius);
         locations.push_back(loc);
@@ -47,8 +50,22 @@ void GameField::addPoint(float x, float y){
 }
 
 //--------------------------------------------------------------
-bool GameField::hasPoints(){
-    return points.size() > 0;
+bool GameField::removeLocation(int x, int y){
+    for(int i = 0; i < locations.size(); i++){
+       
+        if(locations[i].inside(x, y)){
+            vector<Location>::iterator it = locations.begin();
+            advance(it, i);
+            locations.erase(it);
+            return true;
+        }
+    }
+    return false;
+}
+
+//--------------------------------------------------------------
+bool GameField::hasLocations(){
+    return locations.size() > 0;
 }
 
 //--------------------------------------------------------------
@@ -80,9 +97,9 @@ float GameField::getAspectRatio(){
 //--------------------------------------------------------------
 vector<string> GameField::getMovementData(){
     vector<string> vectorToReturn;
-    for(int i = 0; i < points.size(); i++){
+    for(int i = 0; i < locations.size(); i++){
         cout<<"I am in here"<<endl;
-        vectorToReturn[i] = ofToString(points[i].x) + "," + ofToString(points[i].y);
+        vectorToReturn[i] = ofToString(locations[i].getX()) + "," + ofToString(locations[i].getY());
     }
     return vectorToReturn;
 }

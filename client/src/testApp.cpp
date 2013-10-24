@@ -20,7 +20,7 @@ void testApp::update()
     gameField.update();
     
     if(gui.submitted()){
-        if(gameField.hasPoints()){
+        if(gameField.hasLocations()){
             
             //combine the characer data and the movement data
             vector<string> characterData = gui.getCharacterData();
@@ -80,10 +80,10 @@ void testApp::mouseDragged(int x, int y, int button)
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button)
 {
-    if(gameField.inside(x, y)){
-        gameField.addPoint(x, y);
+    //this bool also removes a location if the mouse is over that circle
+    if((gameField.inside(x, y)) && (!gameField.removeLocation(x, y))){
+            gameField.addLocation(x, y);
     }
-    cout<<ofToString(x)<<", "<<ofToString(y)<<endl;
 }
 
 //--------------------------------------------------------------
