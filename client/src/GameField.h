@@ -26,6 +26,7 @@ class GameField{
         int getWidth();
         int getHeight();
         float getStartX();
+        float getAspectRatio();
     
         vector<string> getMovementData();
 
@@ -39,7 +40,6 @@ class GameField{
     
         ofRectangle field;
     
-
 };
 
 #endif

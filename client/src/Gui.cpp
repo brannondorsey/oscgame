@@ -12,11 +12,17 @@
 //--------------------------------------------------------------
 Gui::Gui(){
     
+}
+
+//--------------------------------------------------------------
+void Gui::setup(int width){
+    
+    ofSeedRandom();
     submit = false;
     
     float dim = 24;
 	float xInit = OFX_UI_GLOBAL_WIDGET_SPACING;
-    float length = 320 - xInit;
+    float length = width - xInit;
     
     placeHolder = "Your Name";
     
@@ -27,7 +33,10 @@ Gui::Gui(){
     maxSpeed = 8;
     
     //0 - 100
-    speed = (int) ofRandom(1, 101);
+    int test = (int) ofRandom(100);
+    speed = (int) ofRandom(100);
+    cout<<"The test is: "<<ofToString(test)<<endl;
+    cout<<"The speed is: "<<ofToString(speed)<<endl;
     size = (int) 100 - speed;
     
     red = (int) ofRandom(2, 256);

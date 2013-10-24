@@ -19,6 +19,7 @@ class Gui {
         //Gui(int widgetWidth);
         //~Gui();
     
+        void setup(int width);
         void update();
         void draw();
         void exit();

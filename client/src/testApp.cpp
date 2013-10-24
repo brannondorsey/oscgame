@@ -5,12 +5,12 @@ void testApp::setup()
 {
  	ofEnableSmoothing();
     ofSetCircleResolution(60);
-
+    
     //gameField = GameField();
     int guiWidth = (int) ofGetWidth() - gameField.getWidth();
-    cout<<"The gui width is: "<<ofToString(guiWidth)<<endl;
-    //gui.setup(320);
-    //gui = Gui(320);
+    //cout<<"The gui width is: "<<ofToString(guiWidth)<<endl;
+    gui.setup(guiWidth);
+    cout<<"The aspect ratio is: "<<ofToString(gameField.getAspectRatio())<<endl;
 }
 
 //--------------------------------------------------------------
@@ -37,6 +37,7 @@ void testApp::update()
 //            cout<<data[i]<<endl;
 //        }
     }
+    cout<<"Mouse inside gameField: "<<ofToString(gameField.inside(mouseX, mouseY))<<endl;
     
 }
 
@@ -82,6 +83,7 @@ void testApp::mousePressed(int x, int y, int button)
     if(gameField.inside(x, y)){
         gameField.addPoint(x, y);
     }
+    cout<<ofToString(x)<<", "<<ofToString(y)<<endl;
 }
 
 //--------------------------------------------------------------

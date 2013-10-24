@@ -11,8 +11,9 @@
 //--------------------------------------------------------------
 GameField::GameField(){
     
-    width = 1280;
-    height = 720;
+    
+    height = ofGetHeight();
+    width = height*1.33;
     
     maxPoints = 5;
     field = ofRectangle(ofGetWidth() - getWidth(), ofGetHeight() - getHeight(), getWidth() , getHeight());
@@ -59,6 +60,11 @@ int GameField::getHeight(){
 //--------------------------------------------------------------
 float GameField::getStartX(){
     return field.x;
+}
+
+//--------------------------------------------------------------
+float GameField::getAspectRatio(){
+    return field.getAspectRatio();
 }
 
 
