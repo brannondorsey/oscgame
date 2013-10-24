@@ -2,7 +2,8 @@
 #define TESTAPP
 
 #include "ofMain.h"
-#include "ofxUI.h"
+#include "Gui.h"
+#include "GameField.h"
 
 class testApp : public ofBaseApp 
 {
@@ -21,26 +22,9 @@ class testApp : public ofBaseApp
 	void windowResized(int w, int h);
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
-	ofxUICanvas *gui;
-    ofxUICanvas *gui2;
-	void guiEvent(ofxUIEventArgs &e);
-    bool drawPadding;
-    int modifier;
 
-    float dir;
-	float red, green, blue, size, speed, mspeed;
-    string inputName;
-    float *buffer;
-    float yLoc;
-    float dim;
-	float xInit;
-    float length;
-    ofImage middle;
-    void GUI();
-    float centerUI;
-    bool enterButton;
-    vector<string> data;
-    bool myGui;
+    Gui gui;
+    GameField gameField;
 };
 
 #endif
