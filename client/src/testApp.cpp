@@ -37,7 +37,7 @@ void testApp::update()
 //            cout<<data[i]<<endl;
 //        }
     }
-    cout<<"Mouse inside gameField: "<<ofToString(gameField.inside(mouseX, mouseY))<<endl;
+    //cout<<"Mouse inside gameField: "<<ofToString(gameField.inside(mouseX, mouseY))<<endl;
     
 }
 

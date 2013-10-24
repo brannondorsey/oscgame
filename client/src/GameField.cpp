@@ -11,29 +11,38 @@
 //--------------------------------------------------------------
 GameField::GameField(){
     
-    
     height = ofGetHeight();
     width = height*1.33;
     
     maxPoints = 5;
+    pointRadius = 20;
+    
     field = ofRectangle(ofGetWidth() - getWidth(), ofGetHeight() - getHeight(), getWidth() , getHeight());
     
 }
 
 //--------------------------------------------------------------
 void GameField::update(){
-    
+    for(int i = 0; i < locations.size(); i++){
+        locations[i].update();
+    }
 }
 
 //--------------------------------------------------------------
 void GameField::draw(){
-    
+    for(int i = 0; i < locations.size(); i++){
+        locations[i].draw();
+    }
 }
 
 //--------------------------------------------------------------
 void GameField::addPoint(float x, float y){
-    if(points.size() - maxPoints){
-        points.push_back(ofVec2f(x, y));
+    if(points.size() < maxPoints){
+        points.push_back(ofPoint(x, y));
+        Location loc;
+        loc.set(x, y, pointRadius);
+        locations.push_back(loc);
+//        locations[locations.size()].set(x, y, pointRadius);
     }
 }
 
@@ -72,6 +81,7 @@ float GameField::getAspectRatio(){
 vector<string> GameField::getMovementData(){
     vector<string> vectorToReturn;
     for(int i = 0; i < points.size(); i++){
+        cout<<"I am in here"<<endl;
         vectorToReturn[i] = ofToString(points[i].x) + "," + ofToString(points[i].y);
     }
     return vectorToReturn;

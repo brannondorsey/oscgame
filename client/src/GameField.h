@@ -9,6 +9,7 @@
 #ifndef client_GameField_h
 #define client_GameField_h
 #include "ofMain.h"
+#include "Location.h"
 
 class GameField{
     
@@ -35,8 +36,10 @@ class GameField{
         int maxPoints;
         int width;
         int height;
+        int pointRadius;
     
-        vector<ofVec2f> points;
+        vector<ofPoint> points;
+        vector<Location> locations;
     
         ofRectangle field;
     

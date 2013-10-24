@@ -4,6 +4,7 @@
 #include "ofMain.h"
 #include "Gui.h"
 #include "GameField.h"
+#include "Location.h"
 
 class testApp : public ofBaseApp 
 {

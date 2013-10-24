@@ -46,6 +46,7 @@
 		E7E077E815D3B6510020DFD4 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7E077E715D3B6510020DFD4 /* QTKit.framework */; };
 		E7F985F815E0DEA3003869B5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F985F515E0DE99003869B5 /* Accelerate.framework */; };
 		F8B6B5361819643100FD744E /* GameField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8B6B5351819643100FD744E /* GameField.cpp */; };
+		F8E1C7541819A61300D06C63 /* Location.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8E1C7531819A61300D06C63 /* Location.cpp */; };
 		F8EA274C181889E300844FD8 /* Gui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8EA274B181889E300844FD8 /* Gui.cpp */; };
 /* End PBXBuildFile section */
 
@@ -190,6 +191,8 @@
 		F8AD3BDB1818EB01000EC3E9 /* InfoDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoDisplay.h; sourceTree = "<group>"; };
 		F8B6B5311819607C00FD744E /* GameField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameField.h; sourceTree = "<group>"; };
 		F8B6B5351819643100FD744E /* GameField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameField.cpp; sourceTree = "<group>"; };
+		F8E1C7521819A4C000D06C63 /* Location.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		F8E1C7531819A61300D06C63 /* Location.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Location.cpp; sourceTree = "<group>"; };
 		F8EA274A1818871400844FD8 /* Gui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gui.h; sourceTree = "<group>"; };
 		F8EA274B181889E300844FD8 /* Gui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gui.cpp; sourceTree = "<group>"; };
 		F9DF961B5E7D4C4E1E5D029C /* ofxUITextArea.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxUITextArea.h; path = ../../../addons/ofxUI/src/ofxUITextArea.h; sourceTree = SOURCE_ROOT; };
@@ -479,6 +482,8 @@
 				E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */,
 				F8EA274A1818871400844FD8 /* Gui.h */,
 				F8EA274B181889E300844FD8 /* Gui.cpp */,
+				F8E1C7521819A4C000D06C63 /* Location.h */,
+				F8E1C7531819A61300D06C63 /* Location.cpp */,
 				F8B6B5311819607C00FD744E /* GameField.h */,
 				F8B6B5351819643100FD744E /* GameField.cpp */,
 			);
@@ -627,6 +632,7 @@
 				5A4349E9754D6FA14C0F2A3A /* tinyxmlparser.cpp in Sources */,
 				F8EA274C181889E300844FD8 /* Gui.cpp in Sources */,
 				F8B6B5361819643100FD744E /* GameField.cpp in Sources */,
+				F8E1C7541819A61300D06C63 /* Location.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
