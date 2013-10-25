@@ -105,6 +105,36 @@ void Gui::draw(){
 }
 
 //--------------------------------------------------------------
+float Gui::getRed(){
+    return red;
+}
+
+//--------------------------------------------------------------
+float Gui::getGreen(){
+    return green;
+}
+
+//--------------------------------------------------------------
+float Gui::getBlue(){
+    return blue;
+}
+
+//--------------------------------------------------------------
+float Gui::getSize(){
+    return size;
+}
+
+//--------------------------------------------------------------
+float Gui::getSpeed(){
+    return speed;
+}
+
+//--------------------------------------------------------------
+string Gui::getPlayerName(){
+    return (playerName != placeHolder) ? playerName : generateName(8);
+}
+
+//--------------------------------------------------------------
 void Gui::guiEvent(ofxUIEventArgs &e)
 {
 	string name = e.widget->getName();
@@ -117,6 +147,7 @@ void Gui::guiEvent(ofxUIEventArgs &e)
         cout << "value: " << slider->getScaledValue() << endl;
 	}else if(name == "Enter")
     {
+        //cout<<"I got a ping"<<endl;
         submit = true;
 //        ofxUIToggle *Enter = (ofxUIToggle *) e.widget;
 //        enterButton = Enter->getValue();

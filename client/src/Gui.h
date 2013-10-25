@@ -25,8 +25,17 @@ class Gui {
         void exit();
     
         void guiEvent(ofxUIEventArgs &e);
-        vector<string> getCharacterData();
         bool submitted();
+    
+        float getRed();
+        float getGreen();
+        float getBlue();
+        float getSize();
+        float getSpeed();
+    
+        string getPlayerName();
+    
+        vector<string> getCharacterData();
     
     protected:
     

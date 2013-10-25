@@ -30,7 +30,7 @@ class GameField{
         float getStartX();
         float getAspectRatio();
     
-        vector<string> getMovementData();
+        vector<string> getLocations();
 
     protected:
 
@@ -44,6 +44,8 @@ class GameField{
         vector<Location> locations;
     
         ofRectangle field;
+    
+        void drawThumbnails();
     
 };
 

@@ -10,6 +10,7 @@ void testApp::setup()
     int guiWidth = (int) ofGetWidth() - gameField.getWidth();
     //cout<<"The gui width is: "<<ofToString(guiWidth)<<endl;
     gui.setup(guiWidth);
+    dataHand.setup();
     cout<<"The aspect ratio is: "<<ofToString(gameField.getAspectRatio())<<endl;
 }
 
@@ -20,25 +21,25 @@ void testApp::update()
     gameField.update();
     
     if(gui.submitted()){
+        //cout<<"This always gets submitted twice in a row"<<endl;
         if(gameField.hasLocations()){
             
-            //combine the characer data and the movement data
-            vector<string> characterData = gui.getCharacterData();
-            vector<string> movementData = gameField.getMovementData();
-            characterData.insert(characterData.begin(), movementData.begin(), movementData.end());
-            vector<string> data = characterData;
-            
             //send the message
-            //dataHand.sendMessage("Character Added", data);
+            dataHand.sendCharacter(gui.getPlayerName(),
+                                   gui.getRed(),
+                                   gui.getGreen(),
+                                   gui.getBlue(),
+                                   gui.getSize(),
+                                   gui.getSpeed(),
+                                   gameField.getLocations());
         }
-        //dataHand.sendMessage("Character Added", gui.getCharacterData());
-//        vector<string> data = gui.getCharacterData();
-//        for(int i = 0; i < data.size(); i++){
-//            cout<<data[i]<<endl;
-//        }
     }
-    //cout<<"Mouse inside gameField: "<<ofToString(gameField.inside(mouseX, mouseY))<<endl;
     
+    cout<<"Red: "<<gui.getRed()<<endl;
+    cout<<"Green: "<<gui.getGreen()<<endl;
+    cout<<"Blue: "<<gui.getBlue()<<endl;
+    cout<<"Size: "<<gui.getSize()<<endl;
+    cout<<"Speed: "<<gui.getSpeed()<<endl;
 }
 
 //--------------------------------------------------------------
@@ -83,6 +84,7 @@ void testApp::mousePressed(int x, int y, int button)
     //this bool also removes a location if the mouse is over that circle
     if((gameField.inside(x, y)) && (!gameField.removeLocation(x, y))){
             gameField.addLocation(x, y);
+            dataHand.sendLocation(x, y, gui.getRed(), gui.getGreen(), gui.getBlue());
     }
 }
 

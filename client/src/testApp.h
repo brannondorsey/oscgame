@@ -5,6 +5,8 @@
 #include "Gui.h"
 #include "GameField.h"
 #include "Location.h"
+#include "DataHandler.h"
+
 
 class testApp : public ofBaseApp 
 {
@@ -26,6 +28,7 @@ class testApp : public ofBaseApp
 
     Gui gui;
     GameField gameField;
+    DataHandler dataHand;
 };
 
 #endif

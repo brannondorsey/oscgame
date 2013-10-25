@@ -37,6 +37,29 @@ void GameField::draw(){
             ofLine(locations[i].getX(), locations[i].getY(), locations[i+1].getX(), locations[i+1].getY());
         }
     }
+    drawThumbnails();
+}
+
+//--------------------------------------------------------------
+void GameField::drawThumbnails(){
+    
+    int radius = 10;
+    int spacing = radius*2;
+    int paddingLeft = radius;
+    int paddingTop  = spacing;
+    
+
+    int startX = ofGetWidth() - paddingLeft - radius;
+    int x = startX;
+    int y = paddingTop;
+    
+    int numbThumbnails = maxPoints - locations.size();
+    while(numbThumbnails > 0){
+        ofCircle(x, y, radius);
+        x -= spacing + radius;
+        numbThumbnails--;
+    }
+   
 }
 
 //--------------------------------------------------------------
@@ -93,13 +116,13 @@ float GameField::getAspectRatio(){
     return field.getAspectRatio();
 }
 
-
 //--------------------------------------------------------------
-vector<string> GameField::getMovementData(){
+vector<string> GameField::getLocations(){
     vector<string> vectorToReturn;
     for(int i = 0; i < locations.size(); i++){
-        cout<<"I am in here"<<endl;
-        vectorToReturn[i] = ofToString(locations[i].getX()) + "," + ofToString(locations[i].getY());
+        string x = ofToString(locations[i].getY());
+        string y = ofToString(locations[i].getY());
+        vectorToReturn.push_back(x+","+y);
     }
     return vectorToReturn;
 }

@@ -48,6 +48,7 @@
 		F8B6B5361819643100FD744E /* GameField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8B6B5351819643100FD744E /* GameField.cpp */; };
 		F8E1C7541819A61300D06C63 /* Location.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8E1C7531819A61300D06C63 /* Location.cpp */; };
 		F8EA274C181889E300844FD8 /* Gui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8EA274B181889E300844FD8 /* Gui.cpp */; };
+		F8FD825B1819E74C00D48D10 /* DataHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8FD825A1819E74C00D48D10 /* DataHandler.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,6 +196,8 @@
 		F8E1C7531819A61300D06C63 /* Location.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Location.cpp; sourceTree = "<group>"; };
 		F8EA274A1818871400844FD8 /* Gui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gui.h; sourceTree = "<group>"; };
 		F8EA274B181889E300844FD8 /* Gui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gui.cpp; sourceTree = "<group>"; };
+		F8FD82591819E4E300D48D10 /* DataHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataHandler.h; sourceTree = "<group>"; };
+		F8FD825A1819E74C00D48D10 /* DataHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataHandler.cpp; sourceTree = "<group>"; };
 		F9DF961B5E7D4C4E1E5D029C /* ofxUITextArea.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxUITextArea.h; path = ../../../addons/ofxUI/src/ofxUITextArea.h; sourceTree = SOURCE_ROOT; };
 		FBE1B379902B3C585DC8F7A2 /* ofxUILabelButton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxUILabelButton.h; path = ../../../addons/ofxUI/src/ofxUILabelButton.h; sourceTree = SOURCE_ROOT; };
 		FC5DA1C87211D4F6377DA719 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxmlparser.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxmlparser.cpp; sourceTree = SOURCE_ROOT; };
@@ -482,6 +485,8 @@
 				E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */,
 				F8EA274A1818871400844FD8 /* Gui.h */,
 				F8EA274B181889E300844FD8 /* Gui.cpp */,
+				F8FD82591819E4E300D48D10 /* DataHandler.h */,
+				F8FD825A1819E74C00D48D10 /* DataHandler.cpp */,
 				F8E1C7521819A4C000D06C63 /* Location.h */,
 				F8E1C7531819A61300D06C63 /* Location.cpp */,
 				F8B6B5311819607C00FD744E /* GameField.h */,
@@ -633,6 +638,7 @@
 				F8EA274C181889E300844FD8 /* Gui.cpp in Sources */,
 				F8B6B5361819643100FD744E /* GameField.cpp in Sources */,
 				F8E1C7541819A61300D06C63 /* Location.cpp in Sources */,
+				F8FD825B1819E74C00D48D10 /* DataHandler.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
