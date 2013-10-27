@@ -11,7 +11,7 @@
 //--------------------------------------------------------------
 //PUBLIC
 void DataHandler::setup(){
-    host = "localhost";
+    host = getRemoteHost();
     receivePort = 12345;
     gotCharacter = false;
     sendPort = receivePort + 1;
@@ -120,9 +120,20 @@ bool DataHandler::characterReturned(){
 }
 
 //--------------------------------------------------------------
-//PROTECTED
+//PRIVATE
 
 //--------------------------------------------------------------
 void DataHandler::sendMessage(ofxOscMessage m){
     sender.sendMessage(m);
+}
+
+//--------------------------------------------------------------
+string DataHandler::getRemoteHost(){
+    ofFile file;
+    if(file.open(ofToDataPath("remotehost.txt"))){
+        ofBuffer buff = file.readToBuffer();
+        string ip = buff.getText();
+        cout<<"The remote ip address is "<<ip<<endl;
+        return ip;
+    }else return "localhost";
 }

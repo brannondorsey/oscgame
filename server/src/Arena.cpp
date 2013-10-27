@@ -32,7 +32,7 @@ void Arena::update(){
         
         for(int j = 0; j < characters.size(); j++){
             if(coin.intersects(characters[j])){
-                
+                characters[j].addCoin();
                 //remove that coin from the vector
                 coins.erase(coins.begin() + i);
             }

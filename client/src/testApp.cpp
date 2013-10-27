@@ -21,9 +21,9 @@ void testApp::update()
     gameField.update();
     dataHand.update();
     
-    if(int(ofGetFrameNum()) % int(ofGetFrameRate()) == 0){
-        dataHand.sendPing();
-    }
+//    if(int(ofGetFrameNum()) % int(ofGetFrameRate()) == 0){
+//        dataHand.sendPing();
+//    }
     
     //if the the player's gameField is enabled...
     if(!gameField.isDisabled()){

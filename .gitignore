@@ -1,4 +1,5 @@
 *.mode1v3
+*remothost.txt
 
 # xcode
 *.pbxuser

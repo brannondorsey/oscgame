@@ -46,7 +46,8 @@ class DataHandler{
         ofxOscSender sender;
     
         void sendMessage(ofxOscMessage m);
-        
+        string getRemoteHost();
+    
 };
 
 #endif
