@@ -13,11 +13,13 @@
 #include "Character.h"
 #include "Location.h"
 #include "ofxTimer.h"
+#include "Coin.h"
 
 class Arena{
   
     public:
     
+        Arena();
         void update();
         void draw();
     
@@ -30,14 +32,18 @@ class Arena{
     
     private:
     
+        int numCoins;
+    
         vector<Character> expiredCharacters;
         vector<Character> characters;
         vector<Location> locations;
+        vector<Coin> coins;
     
         void updateLocations();
         void updateCharacters();
         void drawLocations();
         void drawCharacters();
+        void drawCoins();
     
         bool characterInArena(const Character& character);
 

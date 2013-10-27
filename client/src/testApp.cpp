@@ -104,7 +104,7 @@ void testApp::mousePressed(int x, int y, int button)
                                       gui.getGreen(),
                                       gui.getBlue(),
                                       gameField.getWidth(),
-                                      gameField.getWidth());
+                                      gameField.getHeight());
             };
         }
     }

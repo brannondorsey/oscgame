@@ -51,6 +51,7 @@
 		F85151D0181C5EDE00705DA2 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F85151CF181C5EDE00705DA2 /* Character.cpp */; };
 		F8A33B66181C8EA200E5AE4E /* ofxTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8A33B65181C8EA200E5AE4E /* ofxTimer.cpp */; };
 		F8A33B68181CE6A100E5AE4E /* Arena.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8A33B67181CE6A100E5AE4E /* Arena.cpp */; };
+		F8DF08C9181DAD16003E71ED /* Coin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8DF08C8181DAD16003E71ED /* Coin.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +160,8 @@
 		F8A33B64181C8E3E00E5AE4E /* ofxTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTimer.h; sourceTree = "<group>"; };
 		F8A33B65181C8EA200E5AE4E /* ofxTimer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTimer.cpp; sourceTree = "<group>"; };
 		F8A33B67181CE6A100E5AE4E /* Arena.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Arena.cpp; sourceTree = "<group>"; };
+		F8DF08C7181DAB20003E71ED /* Coin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coin.h; sourceTree = "<group>"; };
+		F8DF08C8181DAD16003E71ED /* Coin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Coin.cpp; sourceTree = "<group>"; };
 		FC5DA1C87211D4F6377DA719 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxmlparser.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxmlparser.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -379,6 +382,8 @@
 				E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */,
 				F8A33B63181C8BD600E5AE4E /* Arena.h */,
 				F8A33B67181CE6A100E5AE4E /* Arena.cpp */,
+				F8DF08C7181DAB20003E71ED /* Coin.h */,
+				F8DF08C8181DAD16003E71ED /* Coin.cpp */,
 				F85151C5181C41AC00705DA2 /* DataHandler.h */,
 				F85151C7181C461D00705DA2 /* DataHandler.cpp */,
 				F85151CE181C5CB100705DA2 /* Character.h */,
@@ -537,6 +542,7 @@
 				F8A33B66181C8EA200E5AE4E /* ofxTimer.cpp in Sources */,
 				F8A33B68181CE6A100E5AE4E /* Arena.cpp in Sources */,
 				F83501C7181D5F7C00D3FEB3 /* Translator.cpp in Sources */,
+				F8DF08C9181DAD16003E71ED /* Coin.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

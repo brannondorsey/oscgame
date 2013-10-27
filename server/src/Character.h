@@ -30,6 +30,8 @@ class Character{
         void addCoin();
     
         int getCoins();
+        float getSize() const;
+        ofVec2f getCurrentPos() const;
         string getClientIP() const;
     
         bool isFinished();

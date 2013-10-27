@@ -24,7 +24,7 @@ ofxTimer::ofxTimer() {
 
 ofxTimer::~ofxTimer() {
 	ofRemoveListener(ofEvents().update, this, &ofxTimer::update);
-	printf("*** Timer Destroyed ***\n");
+	//printf("*** Timer Destroyed ***\n");
 }
 
 // ---------------------------------------

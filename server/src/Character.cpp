@@ -89,6 +89,18 @@ int Character::getCoins(){
 }
 
 //--------------------------------------------------------------
+float Character::getSize() const{
+    return size;
+}
+
+//--------------------------------------------------------------
 string Character::getClientIP() const{
     return clientIP;
 }
+
+//--------------------------------------------------------------
+ofVec2f Character::getCurrentPos() const{
+    return currentPos;
+}
+
+

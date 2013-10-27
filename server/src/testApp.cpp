@@ -6,7 +6,7 @@ void testApp::setup(){
     ofEnableSmoothing();
     ofSetCircleResolution(60);
     
-    bgColor = ofColor(255, 232, 120);
+    bgColor = ofColor(255, 115, 99); //ofColor(255, 232, 120); //yellow
     ofBackground(bgColor);
     maxPlayers = 4;
     dataHand.setup(bgColor);

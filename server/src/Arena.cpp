@@ -8,14 +8,41 @@
 
 #include "Arena.h"
 
+Arena::Arena(){
+    
+    numCoins = 20;
+    coins.resize(numCoins);
+    
+    ofSeedRandom();
+    for(int i = 0; i < numCoins; i++){
+        int x = (int) ofRandomWidth();
+        int y = (int) ofRandomHeight();
+        coins[i] = Coin(x, y);
+    }
+}
+
 //--------------------------------------------------------------
 void Arena::update(){
     updateCharacters();
     updateLocations();
+    
+    //loop through all coins and see if characters have hit them
+    for(int i = 0; i < coins.size(); i++){
+        Coin coin = coins[i];
+        
+        for(int j = 0; j < characters.size(); j++){
+            if(coin.intersects(characters[j])){
+                
+                //remove that coin from the vector
+                coins.erase(coins.begin() + i);
+            }
+        }
+    }
 }
 
 //--------------------------------------------------------------
 void Arena::draw(){
+    drawCoins();
     drawCharacters();
     drawLocations();
 }
@@ -65,6 +92,13 @@ void Arena::drawLocations(){
 void Arena::drawCharacters(){
     for(int i = 0; i < characters.size(); i++){
         characters[i].draw();
+    }
+}
+
+//--------------------------------------------------------------
+void Arena::drawCoins(){
+    for(int i = 0; i < coins.size(); i++){
+        coins[i].draw();
     }
 }
 
