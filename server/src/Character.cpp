@@ -34,25 +34,42 @@ void Character::init(string& _clientIP,
     speed = _speed;
     points = _points;
     
+    for(int i = 0; i < points.size(); i++){
+        cout<<"Point number "<<ofToString(i)<<" contains "<<points[i].x<<", "<<points[i].y<<endl;
+    }
+    
+    finished = false;
+    targetIndex = 1;
     currentPos = ofVec2f(points[0].x, points[0].y);
+    targetPos = ofVec2f(points[targetIndex].x, points[targetIndex].y);
 }
 
 //--------------------------------------------------------------
 void Character::update(){
-    ofVec2f dir(targetPos - currentPos);
-    dir.normalize();
-    currentPos = dir * speed;
     
-    //if currentPos reached targetPos
-    if(currentPos.distance(targetPos) < size){
-        //pick new target pos...
+    if(!finished){
+        ofVec2f dir(targetPos - currentPos);
+        dir = dir.normalize();
+        currentPos += dir * speed;
+        
+        //if currentPos reached targetPos
+        if(currentPos.distance(targetPos) < size){
+            
+            //If the last targt is reached
+            if(targetIndex == points.size() - 1){
+                finished = true;
+            }else{ //pick new target pos...
+                targetIndex++;
+                targetPos = points[targetIndex];
+            }
+        }
     }
+    //cout<<"Current position: "<<ofToString(currentPos.x)<<", "<<ofToString(currentPos.y)<<endl;
 }
 
 //--------------------------------------------------------------
 void Character::draw(){
     ofSetColor(red, green, blue);
-    //cout<<"Size is "<<ofToString(size)<<endl;
     ofCircle(currentPos.x, currentPos.y, size);
 }
 
@@ -63,8 +80,7 @@ void Character::addCoin(){
 
 //--------------------------------------------------------------
 bool Character::isFinished(){
-    ofPoint lastPoint = points[points.size() - 1];
-    return currentPos.distance(lastPoint) < speed;
+    return finished;
 }
 
 //--------------------------------------------------------------
@@ -73,6 +89,6 @@ int Character::getCoins(){
 }
 
 //--------------------------------------------------------------
-string Character::getClientIP(){
+string Character::getClientIP() const{
     return clientIP;
 }

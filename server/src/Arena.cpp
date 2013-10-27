@@ -27,7 +27,9 @@ void Arena::previewLocation(const Location& location){
 
 //--------------------------------------------------------------
 void Arena::addCharacter(const Character& newCharacter){
-    characters.push_back(newCharacter);
+    if(!characterInArena(newCharacter)){
+        characters.push_back(newCharacter);
+    }
 }
 
 //--------------------------------------------------------------
@@ -69,6 +71,16 @@ void Arena::drawCharacters(){
 //--------------------------------------------------------------
 bool Arena::hasExpiredCharacters(){
     return expiredCharacters.size() > 0;
+}
+
+//--------------------------------------------------------------
+bool Arena::characterInArena(const Character& character){
+    string characterIP = character.getClientIP();
+    for(int i = 0; i < characters.size(); i++){
+        string existingCharacterIP = characters[i].getClientIP();
+        if(existingCharacterIP == characterIP) return true;
+    }
+    return false;
 }
 
 //--------------------------------------------------------------

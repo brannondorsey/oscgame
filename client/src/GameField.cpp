@@ -17,6 +17,8 @@ GameField::GameField(){
     maxPoints = 5;
     pointRadius = 20;
     
+    disabledColor = ofColor(36, 36, 36, 100);
+    enable();
     field = ofRectangle(ofGetWidth() - getWidth(), ofGetHeight() - getHeight(), getWidth() , getHeight());
     
 }
@@ -30,6 +32,8 @@ void GameField::update(){
 
 //--------------------------------------------------------------
 void GameField::draw(){
+    
+    //draw locations
     for(int i = 0; i < locations.size(); i++){
         locations[i].draw();
         if(i < locations.size() - 1){
@@ -37,7 +41,19 @@ void GameField::draw(){
             ofLine(locations[i].getX(), locations[i].getY(), locations[i+1].getX(), locations[i+1].getY());
         }
     }
+    
     drawThumbnails();
+    
+    //draw disabled screen
+    if(isDisabled()){
+        ofSetColor(disabledColor);
+        ofRect(getStartX(), 0, getWidth(), getHeight());
+    }
+}
+
+//--------------------------------------------------------------
+void GameField::reset(){
+    locations.clear();
 }
 
 //--------------------------------------------------------------
@@ -60,6 +76,16 @@ void GameField::drawThumbnails(){
         numbThumbnails--;
     }
    
+}
+
+//--------------------------------------------------------------
+void GameField::enable(){
+    disabled = false;
+}
+
+//--------------------------------------------------------------
+void GameField::disable(){
+    disabled = true;
 }
 
 //--------------------------------------------------------------
@@ -87,8 +113,13 @@ bool GameField::removeLocation(int x, int y){
 }
 
 //--------------------------------------------------------------
-bool GameField::hasLocations(){
-    return locations.size() > 0;
+bool GameField::isDisabled(){
+    return disabled;
+}
+
+//--------------------------------------------------------------
+bool GameField::hasEnoughLocations(){
+    return locations.size() > 1;
 }
 
 //--------------------------------------------------------------

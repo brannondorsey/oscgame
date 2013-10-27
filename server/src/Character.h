@@ -30,20 +30,23 @@ class Character{
         void addCoin();
     
         int getCoins();
-        string getClientIP();
+        string getClientIP() const;
     
         bool isFinished();
     
     private:
     
-        string clientIP;
-        string playerName;
+        bool finished;
+        int targetIndex;
         int red;
         int green;
         int blue;
         int coins;
         float size;
         float speed;
+    
+        string clientIP;
+        string playerName;
         vector<ofPoint> points;
     
         ofVec2f targetPos;

@@ -2,6 +2,10 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
+    
+    ofEnableSmoothing();
+    ofSetCircleResolution(60);
+    
     bgColor = ofColor(255, 232, 120);
     ofBackground(bgColor);
     maxPlayers = 4;

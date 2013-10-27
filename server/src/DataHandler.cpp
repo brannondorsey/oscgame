@@ -14,8 +14,8 @@ void DataHandler::setup(ofColor& _bgColor){
     int maxPlayers = 4;
     
     bgColor = _bgColor;
-    int sendPort = 12345;
-    int receivePort = sendPort + 1;
+    sendPort = 12345;
+    receivePort = sendPort + 1;
     receiver.setup(receivePort);
 }
 
@@ -104,6 +104,9 @@ void DataHandler::receiveMessages(){
             float speed = m.getArgAsFloat(7);
             vector<ofPoint> points;
             
+            size = Translator::getArenaSize(size);
+            speed = Translator::getArenaSpeed(speed);
+            
             for(int i = 8; i < m.getNumArgs(); i++){
                 vector<string> split = ofSplitString(m.getArgAsString(i), ",");
                 int x = ofToInt(split[0]);
@@ -122,11 +125,14 @@ void DataHandler::receiveMessages(){
 //--------------------------------------------------------------
 void DataHandler::sendCharacterBack(Character expiredCharacter){
     /*
-     coins
+     "true"
      */
     ofxOscMessage m;
     m.setAddress("/character received");
-    m.addIntArg(expiredCharacter.getCoins());
+    m.addStringArg("true");
+    cout<<"Expired character ip is "<<expiredCharacter.getClientIP()<<endl;
+    cout<<"sendPort is "<<sendPort<<endl;
+    sender.setup(expiredCharacter.getClientIP(), sendPort);
     m.setRemoteEndpoint(expiredCharacter.getClientIP(), sendPort);
     sender.sendMessage(m);
 }

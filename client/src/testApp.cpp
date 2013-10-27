@@ -5,6 +5,7 @@ void testApp::setup()
 {
  	ofEnableSmoothing();
     ofSetCircleResolution(60);
+    ofEnableAlphaBlending();
 
     int guiWidth = (int) ofGetWidth() - gameField.getWidth();
     //cout<<"The gui width is: "<<ofToString(guiWidth)<<endl;
@@ -18,28 +19,40 @@ void testApp::update()
 {
     gui.update();
     gameField.update();
+    dataHand.update();
     
     if(int(ofGetFrameNum()) % int(ofGetFrameRate()) == 0){
         dataHand.sendPing();
     }
     
-    if(gui.submitted()){
-        //cout<<"This always gets submitted twice in a row"<<endl;
-        if(gameField.hasLocations()){
-            
-            //send the message
-            dataHand.sendCharacter(gui.getPlayerName(),
-                                   gui.getRed(),
-                                   gui.getGreen(),
-                                   gui.getBlue(),
-                                   gui.getSize(),
-                                   gui.getSpeed(),
-                                   gameField.getLocations(),
-                                   gameField.getWidth(),
-                                   gameField.getHeight());
+    //if the the player's gameField is enabled...
+    if(!gameField.isDisabled()){
+        if(gui.submitted()){
+            //cout<<"This always gets submitted twice in a row"<<endl;
+            if(gameField.hasEnoughLocations()){
+                
+                //send the message
+                dataHand.sendCharacter(gui.getPlayerName(),
+                                       gui.getRed(),
+                                       gui.getGreen(),
+                                       gui.getBlue(),
+                                       gui.getSize(),
+                                       gui.getSpeed(),
+                                       gameField.getLocations(),
+                                       gameField.getWidth(),
+                                       gameField.getHeight());
+                
+                //disable the gamefield while the character is away
+                gameField.disable();
+            }
+        }
+    }else{ //if the player's gamefield is disabled...
+        //cout<<"The gamefield is disabled"<<endl;
+        if(dataHand.characterReturned()){
+            gameField.reset();
+            gameField.enable();
         }
     }
-    cout<<"I did a frame"<<endl;
 }
 
 //--------------------------------------------------------------
@@ -81,17 +94,19 @@ void testApp::mouseDragged(int x, int y, int button)
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button)
 {
-    //this bool also removes a location if the mouse is over that circle
-    if((gameField.inside(x, y)) && (!gameField.removeLocation(x, y))){
-        if(gameField.addLocation(x, y)){
-            dataHand.sendLocation(x - gameField.getStartX(),
-                                  y,
-                                  gui.getRed(),
-                                  gui.getGreen(),
-                                  gui.getBlue(),
-                                  gameField.getWidth(),
-                                  gameField.getWidth());
-        };
+    if(!gameField.isDisabled()){
+        //this bool also removes a location if the mouse is over that circle
+        if((gameField.inside(x, y)) && (!gameField.removeLocation(x, y))){
+            if(gameField.addLocation(x, y)){
+                dataHand.sendLocation(x - gameField.getStartX(),
+                                      y,
+                                      gui.getRed(),
+                                      gui.getGreen(),
+                                      gui.getBlue(),
+                                      gameField.getWidth(),
+                                      gameField.getWidth());
+            };
+        }
     }
 }
 

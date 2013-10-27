@@ -23,7 +23,7 @@ class Arena{
     
         void previewLocation(const Location& location);
         void addCharacter(const Character& character);
-    
+        
         bool hasExpiredCharacters();
     
         vector<Character> getExpiredCharacters();
@@ -36,9 +36,11 @@ class Arena{
     
         void updateLocations();
         void updateCharacters();
-
         void drawLocations();
         void drawCharacters();
+    
+        bool characterInArena(const Character& character);
+
 
 };
 

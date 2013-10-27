@@ -18,6 +18,7 @@ class DataHandler{
     public:
     
         void setup();
+        void update();
     
         void sendPing();
         void sendLocation(int x, int y, float red, float green, float blue, int gameFieldWidth, int gameFieldHeight);
@@ -31,13 +32,15 @@ class DataHandler{
                            int gameFieldWidth,
                            int gameFieldHeight);
     
-        bool receivedMessage();
+        bool characterReturned();
     
     private:
     
         string host;
         int sendPort;
         int receivePort;
+    
+        bool gotCharacter;
     
         ofxOscReceiver receiver;
         ofxOscSender sender;

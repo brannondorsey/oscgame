@@ -142,7 +142,6 @@ string Gui::getPlayerName(){
 //--------------------------------------------------------------
 void Gui::guiEvent(ofxUIEventArgs &e)
 {
-    cout<<"I fired an event"<<endl;
 	string name = e.widget->getName();
 	int kind = e.widget->getKind();
     int i = 0;

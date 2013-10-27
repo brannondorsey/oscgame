@@ -19,12 +19,16 @@ class GameField{
     
         void update();
         void draw();
+        void reset();
+        void enable();
+        void disable();
     
         bool addLocation(float x, float y);
-        bool hasLocations();
+        bool hasEnoughLocations();
         bool inside(float x, float y);
         bool removeLocation(int x, int y);
         bool locationsFull();
+        bool isDisabled();
     
         int getWidth();
         int getHeight();
@@ -42,8 +46,11 @@ class GameField{
         int mx;
         int my;
     
+        bool disabled;
+    
         vector<Location> locations;
     
+        ofColor disabledColor;
         ofRectangle field;
     
         void drawThumbnails();

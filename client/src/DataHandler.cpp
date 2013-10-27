@@ -13,8 +13,27 @@
 void DataHandler::setup(){
     host = "localhost";
     receivePort = 12345;
+    gotCharacter = false;
     sendPort = receivePort + 1;
     sender.setup(host, sendPort);
+    receiver.setup(receivePort);
+}
+
+//--------------------------------------------------------------
+void DataHandler::update(){
+    gotCharacter = false;
+    // check for waiting messages
+    while(receiver.hasWaitingMessages()){
+            
+        // get the next message
+        ofxOscMessage m;
+        receiver.getNextMessage(&m);
+        
+        if(m.getAddress() == "/character received"){
+            cout<<"I received the OSC message"<<endl;
+            gotCharacter = true;
+        }
+    }
 }
 
 //--------------------------------------------------------------
@@ -96,8 +115,8 @@ void DataHandler::sendLocation(int x, int y, float red, float green, float blue,
 }
 
 //--------------------------------------------------------------
-bool DataHandler::receivedMessage(){
-    
+bool DataHandler::characterReturned(){
+    return gotCharacter;
 }
 
 //--------------------------------------------------------------
