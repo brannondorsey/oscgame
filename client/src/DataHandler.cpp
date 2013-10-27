@@ -18,11 +18,6 @@ void DataHandler::setup(){
 }
 
 //--------------------------------------------------------------
-void DataHandler::processMessage(){
-    
-}
-
-//--------------------------------------------------------------
 void DataHandler::sendPing(){
     ofxOscMessage m;
     m.setAddress("/ping");
@@ -37,9 +32,13 @@ void DataHandler::sendCharacter(string playerName,
                                 float blue,
                                 float size,
                                 float speed,
-                                vector<string> locations){
+                                vector<string> locations,
+                                int gameFieldWidth,
+                                int gameFieldHeight){
     
     /*
+     gameFieldWidth
+     gameFieldHeight
      "player name"
      red
      green
@@ -56,6 +55,8 @@ void DataHandler::sendCharacter(string playerName,
     ofxOscMessage m;
     
     m.setAddress("/character added");
+    m.addIntArg(gameFieldWidth);
+    m.addIntArg(gameFieldHeight);
     m.addStringArg(playerName); // screen name
     m.addFloatArg(red); // red
     m.addFloatArg(green); // green
@@ -71,9 +72,11 @@ void DataHandler::sendCharacter(string playerName,
 }
 
 //--------------------------------------------------------------
-void DataHandler::sendLocation(int x, int y, float red, float green, float blue){
+void DataHandler::sendLocation(int x, int y, float red, float green, float blue, int gameFieldWidth, int gameFieldHeight){
     
     /*
+     gameFieldWidth
+     gameFieldHeight
      "x,y"
      red
      green
@@ -82,6 +85,8 @@ void DataHandler::sendLocation(int x, int y, float red, float green, float blue)
     
     ofxOscMessage m;
     m.setAddress("/new location");
+    m.addIntArg(gameFieldWidth);
+    m.addIntArg(gameFieldHeight);
     m.addStringArg(ofToString(x) + "," + ofToString(y)); 
     m.addFloatArg(red);
     m.addFloatArg(green);

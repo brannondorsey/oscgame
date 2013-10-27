@@ -10,14 +10,14 @@
 
 //--------------------------------------------------------------
 void Arena::update(){
-    updateLocations();
     updateCharacters();
+    updateLocations();
 }
 
 //--------------------------------------------------------------
 void Arena::draw(){
-    drawLocations();
     drawCharacters();
+    drawLocations();
 }
 
 //--------------------------------------------------------------
@@ -61,7 +61,9 @@ void Arena::drawLocations(){
 
 //--------------------------------------------------------------
 void Arena::drawCharacters(){
-    
+    for(int i = 0; i < characters.size(); i++){
+        characters[i].draw();
+    }
 }
 
 //--------------------------------------------------------------

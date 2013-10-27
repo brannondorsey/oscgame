@@ -27,6 +27,7 @@ class Character{
     
         void update();
         void draw();
+        void addCoin();
     
         int getCoins();
         string getClientIP();

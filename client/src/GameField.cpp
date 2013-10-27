@@ -120,7 +120,7 @@ float GameField::getAspectRatio(){
 vector<string> GameField::getLocations(){
     vector<string> vectorToReturn;
     for(int i = 0; i < locations.size(); i++){
-        string x = ofToString(locations[i].getY());
+        string x = ofToString(locations[i].getX() - getStartX());
         string y = ofToString(locations[i].getY());
         vectorToReturn.push_back(x+","+y);
     }

@@ -34,7 +34,9 @@ void testApp::update()
                                    gui.getBlue(),
                                    gui.getSize(),
                                    gui.getSpeed(),
-                                   gameField.getLocations());
+                                   gameField.getLocations(),
+                                   gameField.getWidth(),
+                                   gameField.getHeight());
         }
     }
     cout<<"I did a frame"<<endl;
@@ -82,7 +84,13 @@ void testApp::mousePressed(int x, int y, int button)
     //this bool also removes a location if the mouse is over that circle
     if((gameField.inside(x, y)) && (!gameField.removeLocation(x, y))){
         if(gameField.addLocation(x, y)){
-            dataHand.sendLocation(x, y, gui.getRed(), gui.getGreen(), gui.getBlue());
+            dataHand.sendLocation(x - gameField.getStartX(),
+                                  y,
+                                  gui.getRed(),
+                                  gui.getGreen(),
+                                  gui.getBlue(),
+                                  gameField.getWidth(),
+                                  gameField.getWidth());
         };
     }
 }

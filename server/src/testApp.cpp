@@ -2,9 +2,10 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-    ofBackground(255, 232, 120);
+    bgColor = ofColor(255, 232, 120);
+    ofBackground(bgColor);
     maxPlayers = 4;
-    dataHand.setup();
+    dataHand.setup(bgColor);
     dataHand.setMaxPlayers(maxPlayers);
 }
 

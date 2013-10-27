@@ -14,12 +14,13 @@
 #include "ofxOscReceiver.h"
 #include "Character.h"
 #include "Location.h"
+#include "Translator.h"
 
 class DataHandler{
     
     public:
     
-        void setup();
+        void setup(ofColor& bgColor);
         void update();
         void setMaxPlayers(int _maxPlayers);
         void sendCharacterBack(Character expiredCharacter);
@@ -35,10 +36,12 @@ class DataHandler{
         int maxPlayers;
         int sendPort;
         int receivePort;
-
+    
         vector<string>knownClients; //collected IP's of chat participants
         vector<Location> newLocations;
         vector<Character> newCharacters;
+    
+        ofColor bgColor;
     
         ofxOscReceiver receiver;
         ofxOscSender sender;
@@ -47,6 +50,5 @@ class DataHandler{
         void sendMessage(string clientIP, ofxOscMessage m);
         void broadcastMessage(ofxOscMessage m);
 };
-
 
 #endif

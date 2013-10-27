@@ -105,6 +105,11 @@ void Gui::draw(){
 }
 
 //--------------------------------------------------------------
+int Gui::getGuiWidth(){
+    return length; //COME BACK AND CHANGE ALL length VARS TO guiWidth
+}
+
+//--------------------------------------------------------------
 int Gui::getRed(){
     return int(red);
 }

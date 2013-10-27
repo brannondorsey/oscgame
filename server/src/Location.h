@@ -17,7 +17,7 @@ class Location{
     public:
         
         Location(){};
-        Location(int x, int y, float red, float green, float blue);
+        Location(int x, int y, float red, float green, float blue, ofColor fillColor);
     
         void update();
         void draw();
@@ -31,6 +31,7 @@ class Location{
         int maxRadius;
         int animationTime;
         int modifier;
+        int strokeSize;
     
         float minRadius;
         float radius;
@@ -40,10 +41,10 @@ class Location{
         float blue;
 
         ofPoint center;
-    
+        ofColor fillColor;
         ofxTimer timer;
     
-        void init(ofPoint _center, float& _red, float& _green, float& _blue);
+        void init(ofPoint _center, float& _red, float& _green, float& _blue, ofColor& _fillColor);
 };
 
 

@@ -22,7 +22,10 @@ class testApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
     private:
+    
         int maxPlayers;
+        ofColor bgColor;
         DataHandler dataHand;
         Arena arena;
+        
 };

@@ -30,6 +30,7 @@ class Gui {
         int getRed();
         int getGreen();
         int getBlue();
+        int getGuiWidth();
         float getSize();
         float getSpeed();
     

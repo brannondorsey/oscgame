@@ -33,6 +33,8 @@ void Character::init(string& _clientIP,
     size = _size;
     speed = _speed;
     points = _points;
+    
+    currentPos = ofVec2f(points[0].x, points[0].y);
 }
 
 //--------------------------------------------------------------
@@ -50,9 +52,16 @@ void Character::update(){
 //--------------------------------------------------------------
 void Character::draw(){
     ofSetColor(red, green, blue);
+    //cout<<"Size is "<<ofToString(size)<<endl;
     ofCircle(currentPos.x, currentPos.y, size);
 }
 
+//--------------------------------------------------------------
+void Character::addCoin(){
+    coins++;
+}
+
+//--------------------------------------------------------------
 bool Character::isFinished(){
     ofPoint lastPoint = points[points.size() - 1];
     return currentPos.distance(lastPoint) < speed;

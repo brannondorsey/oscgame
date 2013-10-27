@@ -18,17 +18,18 @@ class DataHandler{
     public:
     
         void setup();
-        void processMessage();
     
         void sendPing();
-        void sendLocation(int x, int y, float red, float green, float blue);
+        void sendLocation(int x, int y, float red, float green, float blue, int gameFieldWidth, int gameFieldHeight);
         void sendCharacter(string playerName,
                            float red,
                            float green,
                            float blue,
                            float size,
                            float speed,
-                           vector<string> locations);
+                           vector<string> locations,
+                           int gameFieldWidth,
+                           int gameFieldHeight);
     
         bool receivedMessage();
     
