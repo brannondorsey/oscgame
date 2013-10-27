@@ -28,6 +28,11 @@ class Character{
         void update();
         void draw();
     
+        int getCoins();
+        string getClientIP();
+    
+        bool isFinished();
+    
     private:
     
         string clientIP;
@@ -35,6 +40,7 @@ class Character{
         int red;
         int green;
         int blue;
+        int coins;
         float size;
         float speed;
         vector<ofPoint> points;

@@ -108,6 +108,18 @@ void DataHandler::receiveMessages(){
 }
 
 //--------------------------------------------------------------
+void DataHandler::sendCharacterBack(Character expiredCharacter){
+    /*
+     coins
+     */
+    ofxOscMessage m;
+    m.setAddress("/character received");
+    m.addIntArg(expiredCharacter.getCoins());
+    m.setRemoteEndpoint(expiredCharacter.getClientIP(), sendPort);
+    sender.sendMessage(m);
+}
+
+//--------------------------------------------------------------
 bool DataHandler::gotLocation(){
     return newLocations.size() > 0;
 }
@@ -120,6 +132,7 @@ bool DataHandler::characterAdded(){
 //--------------------------------------------------------------
 Location DataHandler::getLocation(){
     Location loc = newLocations[0];
+    cout<<"The locations size is "<<newLocations.size()<<endl;
     newLocations.erase(newLocations.begin()); //remove loc from vector
     return loc;
 }

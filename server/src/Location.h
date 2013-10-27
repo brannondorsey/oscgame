@@ -30,6 +30,7 @@ class Location{
     
         int maxRadius;
         int animationTime;
+        int modifier;
     
         float minRadius;
         float radius;

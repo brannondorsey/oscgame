@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "DataHandler.h"
+#include "Arena.h"
 
 class testApp : public ofBaseApp{
 
@@ -23,5 +24,5 @@ class testApp : public ofBaseApp{
     private:
         int maxPlayers;
         DataHandler dataHand;
-        //Arena arena;
+        Arena arena;
 };

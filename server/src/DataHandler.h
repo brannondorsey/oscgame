@@ -22,8 +22,7 @@ class DataHandler{
         void setup();
         void update();
         void setMaxPlayers(int _maxPlayers);
-        void messageWaiting();
-        void processMessage();
+        void sendCharacterBack(Character expiredCharacter);
     
         bool gotLocation();
         bool characterAdded();

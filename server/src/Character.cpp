@@ -12,6 +12,7 @@
 Character::Character(string clientIP, string playerName, int red, int green, int blue, float size, float speed, vector<ofPoint> points){
     init(clientIP, playerName, red, green, blue, size, speed, points);
     currentPos = ofVec2f(points[0].x, points[0].y);
+    coins = 0;
 }
 
 //--------------------------------------------------------------
@@ -50,4 +51,19 @@ void Character::update(){
 void Character::draw(){
     ofSetColor(red, green, blue);
     ofCircle(currentPos.x, currentPos.y, size);
+}
+
+bool Character::isFinished(){
+    ofPoint lastPoint = points[points.size() - 1];
+    return currentPos.distance(lastPoint) < speed;
+}
+
+//--------------------------------------------------------------
+int Character::getCoins(){
+    return coins;
+}
+
+//--------------------------------------------------------------
+string Character::getClientIP(){
+    return clientIP;
 }

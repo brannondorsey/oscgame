@@ -14,7 +14,9 @@ Location::Location(int x, int y, float red, float green, float blue){
     minRadius = .5;
     maxRadius = 20;
     
+    modifier = 1; 
     radius = minRadius;
+    radiusIncrement = ((maxRadius - minRadius) / ((animationTime/1000) * ofGetFrameRate())) * 2;
     //COME BACK AND FIGURE OUT THE radiusIncrement
     init(ofPoint(x, y), red, green, blue);
     started = false;
@@ -35,16 +37,22 @@ void Location::update(){
         timer.startTimer();
         started = true;
     }
-    
+    // if max size reached
+    if(radius >= maxRadius){
+        modifier = -modifier;
+    }
+    radius += radiusIncrement * modifier;
 }
 
 //--------------------------------------------------------------
 void Location::draw(){
-    ofSetColor(red, green, blue);
-    ofCircle(center, 10);
+    if(!finishedDisplaying()){
+        ofSetColor(red, green, blue);
+        ofCircle(center, radius);
+    }
 }
 
 //--------------------------------------------------------------
 bool Location::finishedDisplaying(){
-    return timer.isTimerFinished();
+    return timer.isTimerFinished() || radius < 0;
 }

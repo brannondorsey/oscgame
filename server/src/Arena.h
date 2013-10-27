@@ -21,11 +21,16 @@ class Arena{
         void update();
         void draw();
     
-        void previewLocation();
-        void addCharacter();
+        void previewLocation(const Location& location);
+        void addCharacter(const Character& character);
+    
+        bool hasExpiredCharacters();
+    
+        vector<Character> getExpiredCharacters();
     
     private:
     
+        vector<Character> expiredCharacters;
         vector<Character> characters;
         vector<Location> locations;
     

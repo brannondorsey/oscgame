@@ -12,21 +12,25 @@ void testApp::setup(){
 void testApp::update(){
     dataHand.update();
     while(dataHand.gotLocation()){
-        //arena.previewLocation(dataHand.getLocation());
-        dataHand.getLocation(); //must get the location or else inifite loop
+        arena.previewLocation(dataHand.getLocation());
         cout<<"I added a location"<<endl;
     }
     while(dataHand.characterAdded()){
-        //arena.addCharacter(dataHand.getCharacter());
-        dataHand.getCharacter(); //must get the character or else infinite loop
+        arena.addCharacter(dataHand.getCharacter());
         cout<<"I added a character"<<endl;
     }
     arena.update();
+    if(arena.hasExpiredCharacters()){
+        vector<Character> expiredCharacters = arena.getExpiredCharacters();
+        for(int i = 0; i < expiredCharacters.size(); i++){
+            dataHand.sendCharacterBack(expiredCharacters[i]);
+        }
+    }
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
-
+    arena.draw();
 }
 
 //--------------------------------------------------------------
