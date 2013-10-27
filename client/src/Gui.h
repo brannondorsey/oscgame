@@ -27,9 +27,9 @@ class Gui {
         void guiEvent(ofxUIEventArgs &e);
         bool submitted();
     
-        float getRed();
-        float getGreen();
-        float getBlue();
+        int getRed();
+        int getGreen();
+        int getBlue();
         float getSize();
         float getSpeed();
     

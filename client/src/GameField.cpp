@@ -63,13 +63,13 @@ void GameField::drawThumbnails(){
 }
 
 //--------------------------------------------------------------
-void GameField::addLocation(float x, float y){
+bool GameField::addLocation(float x, float y){
     if(locations.size() < maxPoints){
         Location loc;
         loc.set(x, y, pointRadius);
         locations.push_back(loc);
-//        locations[locations.size()].set(x, y, pointRadius);
-    }
+        return true;
+    }else return false;
 }
 
 //--------------------------------------------------------------

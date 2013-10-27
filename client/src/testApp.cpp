@@ -5,8 +5,7 @@ void testApp::setup()
 {
  	ofEnableSmoothing();
     ofSetCircleResolution(60);
-    
-    //gameField = GameField();
+
     int guiWidth = (int) ofGetWidth() - gameField.getWidth();
     //cout<<"The gui width is: "<<ofToString(guiWidth)<<endl;
     gui.setup(guiWidth);
@@ -19,6 +18,10 @@ void testApp::update()
 {
     gui.update();
     gameField.update();
+    
+    if(int(ofGetFrameNum()) % int(ofGetFrameRate()) == 0){
+        dataHand.sendPing();
+    }
     
     if(gui.submitted()){
         //cout<<"This always gets submitted twice in a row"<<endl;
@@ -34,12 +37,7 @@ void testApp::update()
                                    gameField.getLocations());
         }
     }
-    
-    cout<<"Red: "<<gui.getRed()<<endl;
-    cout<<"Green: "<<gui.getGreen()<<endl;
-    cout<<"Blue: "<<gui.getBlue()<<endl;
-    cout<<"Size: "<<gui.getSize()<<endl;
-    cout<<"Speed: "<<gui.getSpeed()<<endl;
+    cout<<"I did a frame"<<endl;
 }
 
 //--------------------------------------------------------------
@@ -83,8 +81,9 @@ void testApp::mousePressed(int x, int y, int button)
 {
     //this bool also removes a location if the mouse is over that circle
     if((gameField.inside(x, y)) && (!gameField.removeLocation(x, y))){
-            gameField.addLocation(x, y);
+        if(gameField.addLocation(x, y)){
             dataHand.sendLocation(x, y, gui.getRed(), gui.getGreen(), gui.getBlue());
+        };
     }
 }
 

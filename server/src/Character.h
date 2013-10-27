@@ -1,24 +1,55 @@
 //
 //  Character.h
-//  emptyExample
+//  server
 //
-//  Created by bdorse on 10/13/13.
+//  Created by bdorse on 10/26/13.
 //
 //
 
-#ifndef _OF_CHARACTER
-#define _OF_CHARACTER
+#ifndef server_Character_h
+#define server_Character_h
+
 #include "ofMain.h"
 
 class Character{
     
-public:
+    public:
     
+        Character(){};
+        Character(string clientIP,
+                  string playerName,
+                  int red,
+                  int green,
+                  int blue,
+                  float size,
+                  float speed,
+                  vector<ofPoint> points);
     
-private:
+        void update();
+        void draw();
     
+    private:
     
+        string clientIP;
+        string playerName;
+        int red;
+        int green;
+        int blue;
+        float size;
+        float speed;
+        vector<ofPoint> points;
+    
+        ofVec2f targetPos;
+        ofVec2f currentPos;
+    
+        void init(string& clientIP,
+                  string& playerName,
+                  int& red,
+                  int& green,
+                  int& blue,
+                  float& size,
+                  float& speed,
+                  vector<ofPoint>& points);
 };
-
 
 #endif

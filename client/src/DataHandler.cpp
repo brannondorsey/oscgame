@@ -12,8 +12,9 @@
 //PUBLIC
 void DataHandler::setup(){
     host = "localhost";
-    port = 12345;
-    sender.setup(host, port);
+    receivePort = 12345;
+    sendPort = receivePort + 1;
+    sender.setup(host, sendPort);
 }
 
 //--------------------------------------------------------------
@@ -73,7 +74,6 @@ void DataHandler::sendCharacter(string playerName,
 void DataHandler::sendLocation(int x, int y, float red, float green, float blue){
     
     /*
-     "player name"
      "x,y"
      red
      green

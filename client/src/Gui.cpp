@@ -105,18 +105,18 @@ void Gui::draw(){
 }
 
 //--------------------------------------------------------------
-float Gui::getRed(){
-    return red;
+int Gui::getRed(){
+    return int(red);
 }
 
 //--------------------------------------------------------------
-float Gui::getGreen(){
-    return green;
+int Gui::getGreen(){
+    return int(green);
 }
 
 //--------------------------------------------------------------
-float Gui::getBlue(){
-    return blue;
+int Gui::getBlue(){
+    return int(blue);
 }
 
 //--------------------------------------------------------------
@@ -137,6 +137,7 @@ string Gui::getPlayerName(){
 //--------------------------------------------------------------
 void Gui::guiEvent(ofxUIEventArgs &e)
 {
+    cout<<"I fired an event"<<endl;
 	string name = e.widget->getName();
 	int kind = e.widget->getKind();
     int i = 0;
@@ -144,7 +145,7 @@ void Gui::guiEvent(ofxUIEventArgs &e)
 	{
 		ofxUISlider *slider = (ofxUISlider *) e.widget;
 		red = slider->getScaledValue();
-        cout << "value: " << slider->getScaledValue() << endl;
+        //cout << "value: " << slider->getScaledValue() << endl;
 	}else if(name == "Enter")
     {
         //cout<<"I got a ping"<<endl;
@@ -156,27 +157,27 @@ void Gui::guiEvent(ofxUIEventArgs &e)
 	{
 		ofxUIMinimalSlider *slider = (ofxUIMinimalSlider *) e.widget;
 		green = slider->getScaledValue();
-        cout << "value: " << slider->getScaledValue() << endl;
+        //cout << "value: " << slider->getScaledValue() << endl;
 	}
 	else if(name == "BLUE")
 	{
 		ofxUIBiLabelSlider *slider = (ofxUIBiLabelSlider *) e.widget;
 		blue = slider->getScaledValue();
-        cout << "value: " << slider->getScaledValue() << endl;
+        //cout << "value: " << slider->getScaledValue() << endl;
 	}
     else if(name == "SIZE")
 	{
 		ofxUIBiLabelSlider *slider = (ofxUIBiLabelSlider *) e.widget;
 		size = slider->getScaledValue();
         calcInversePorportion(size, speed, 0, 100, 0, 100);
-        cout << "value: " << slider->getScaledValue() << endl;
+        //cout << "value: " << slider->getScaledValue() << endl;
 	}
     else if(name == "SPEED")
 	{
 		ofxUIBiLabelSlider *slider = (ofxUIBiLabelSlider *) e.widget;
 		speed = slider->getScaledValue();
         calcInversePorportion(speed, size, 0, 100, 0, 100);
-        cout << "speed is: " << speed << endl;
+        //cout << "speed is: " << speed << endl;
 	}
     
     
@@ -187,15 +188,15 @@ void Gui::guiEvent(ofxUIEventArgs &e)
         {
             string output = textinput->getTextString();
             playerName = output;
-            cout << output << endl;
+            //cout << output << endl;
         }
         else if(textinput->getTriggerType() == OFX_UI_TEXTINPUT_ON_FOCUS)
         {
-            cout << "ON FOCUS: ";
+            //cout << "ON FOCUS: ";
         }
         else if(textinput->getTriggerType() == OFX_UI_TEXTINPUT_ON_UNFOCUS)
         {
-            cout << "ON BLUR: ";
+            //cout << "ON BLUR: ";
             string output = textinput->getTextString();
             playerName = output;
         }

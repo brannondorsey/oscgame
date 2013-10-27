@@ -1,36 +1,53 @@
 //
 //  DataHandler.h
-//  emptyExample
+//  server
 //
-//  Created by bdorse on 10/13/13.
+//  Created by bdorse on 10/26/13.
 //
 //
 
-#ifndef _OF_DATAHANDLER
-#define _OF_DATAHANDLER
+#ifndef server_DataHandler_h
+#define server_DataHandler_h
 
 #include "ofMain.h"
-#include "Player.h"
-#include "ofxOsc.h"
+#include "ofxOscSender.h"
+#include "ofxOscReceiver.h"
+#include "Character.h"
+#include "Location.h"
 
 class DataHandler{
     
-    ofxOscMessage currentPacket;
+    public:
     
-public:
+        void setup();
+        void update();
+        void setMaxPlayers(int _maxPlayers);
+        void messageWaiting();
+        void processMessage();
     
-    bool newPlayerJoined();
-    bool playerLeft();
+        bool gotLocation();
+        bool characterAdded();
     
-    Player& getNewPlayer();
-    Player& getLeftPlayer();
+        Location getLocation(); //should be a Location object to show color
+        Character getCharacter();
     
+    private:
     
+        int maxPlayers;
+        int sendPort;
+        int receivePort;
+
+        vector<string>knownClients; //collected IP's of chat participants
+        vector<Location> newLocations;
+        vector<Character> newCharacters;
     
-private:
-//    Player player;
-    void parseMessage();
+        ofxOscReceiver receiver;
+        ofxOscSender sender;
     
+        void receiveMessages();
+        void sendMessage(string clientIP, ofxOscMessage m);
+        void broadcastMessage(ofxOscMessage m);
 };
+
 
 #endif

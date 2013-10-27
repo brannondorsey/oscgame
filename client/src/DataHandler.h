@@ -17,9 +17,6 @@ class DataHandler{
    
     public:
     
-        string host;
-        int port;
-    
         void setup();
         void processMessage();
     
@@ -35,7 +32,11 @@ class DataHandler{
     
         bool receivedMessage();
     
-    protected:
+    private:
+    
+        string host;
+        int sendPort;
+        int receivePort;
     
         ofxOscReceiver receiver;
         ofxOscSender sender;

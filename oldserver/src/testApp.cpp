@@ -2,31 +2,18 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-    ofBackground(255, 232, 120);
-    maxPlayers = 4;
-    dataHand.setup();
-    dataHand.setMaxPlayers(maxPlayers);
+    gameHand = GameHandler();
+    gameHand.startGameCountdown();
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
-    dataHand.update();
-    while(dataHand.gotLocation()){
-        //arena.previewLocation(dataHand.getLocation());
-        dataHand.getLocation(); //must get the location or else inifite loop
-        cout<<"I added a location"<<endl;
-    }
-    while(dataHand.characterAdded()){
-        //arena.addCharacter(dataHand.getCharacter());
-        dataHand.getCharacter(); //must get the character or else infinite loop
-        cout<<"I added a character"<<endl;
-    }
-    arena.update();
+    gameHand.update();
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
-
+    gameHand.display();
 }
 
 //--------------------------------------------------------------
@@ -40,7 +27,7 @@ void testApp::keyReleased(int key){
 }
 
 //--------------------------------------------------------------
-void testApp::mouseMoved(int x, int y ){
+void testApp::mouseMoved(int x, int y){
 
 }
 

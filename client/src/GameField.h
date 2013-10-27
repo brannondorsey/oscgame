@@ -19,11 +19,12 @@ class GameField{
     
         void update();
         void draw();
-        void addLocation(float x, float y);
-            
+    
+        bool addLocation(float x, float y);
         bool hasLocations();
         bool inside(float x, float y);
         bool removeLocation(int x, int y);
+        bool locationsFull();
     
         int getWidth();
         int getHeight();
