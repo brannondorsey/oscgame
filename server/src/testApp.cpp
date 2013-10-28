@@ -11,6 +11,7 @@ void testApp::setup(){
     maxPlayers = 4;
     dataHand.setup(bgColor);
     dataHand.setMaxPlayers(maxPlayers);
+    scoreboard.setup(arena.getStartX());
 }
 
 //--------------------------------------------------------------
@@ -22,6 +23,7 @@ void testApp::update(){
     }
     while(dataHand.characterAdded()){
         arena.addCharacter(dataHand.getCharacter());
+        scoreboard.updatePlayerIcons(arena.getCharacters());
         cout<<"I added a character"<<endl;
     }
     arena.update();
@@ -31,11 +33,15 @@ void testApp::update(){
             dataHand.sendCharacterBack(expiredCharacters[i]);
         }
     }
+    if(arena.scoreChanged()){
+        scoreboard.updateScores(arena.getCharacters());
+    }
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
     arena.draw();
+    scoreboard.draw();
 }
 
 //--------------------------------------------------------------

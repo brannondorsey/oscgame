@@ -18,8 +18,7 @@ float Translator::maxSpeed = 8;
 
 //--------------------------------------------------------------
 ofPoint Translator::getArenaPoint(float gameFieldX, float gameFieldY, float gameFieldWidth, float gameFieldHeight){
-    cout<<"gameFieldHeight is "<<ofToString(gameFieldHeight)<<endl;
-    float x = ofMap(gameFieldX, 0, gameFieldWidth, 0, ofGetWidth());
+    float x = ofMap(gameFieldX, 0, gameFieldWidth, ofGetWidth() - 1024, ofGetWidth());
     float y = ofMap(gameFieldY, 0, gameFieldHeight, 0, ofGetHeight());
     return ofPoint(x, y);
 }

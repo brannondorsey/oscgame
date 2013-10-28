@@ -15,7 +15,7 @@
 class Coin{
     
     public:
-    
+        
         Coin(){};
         Coin(int x, int y);
         Coin(ofPoint point);

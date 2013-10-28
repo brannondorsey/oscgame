@@ -34,10 +34,6 @@ void Character::init(string& _clientIP,
     speed = _speed;
     points = _points;
     
-    for(int i = 0; i < points.size(); i++){
-        cout<<"Point number "<<ofToString(i)<<" contains "<<points[i].x<<", "<<points[i].y<<endl;
-    }
-    
     finished = false;
     targetIndex = 1;
     currentPos = ofVec2f(points[0].x, points[0].y);
@@ -78,6 +74,10 @@ void Character::addCoin(){
     coins++;
 }
 
+void Character::setCoins(int numCoins){
+    coins = numCoins;
+}
+
 //--------------------------------------------------------------
 bool Character::isFinished(){
     return finished;
@@ -99,8 +99,20 @@ string Character::getClientIP() const{
 }
 
 //--------------------------------------------------------------
+string Character::getPlayerName(){
+    return playerName;
+}
+
+//--------------------------------------------------------------
+ofColor Character::getColor(){
+    return ofColor(red, green, blue);
+}
+
+//--------------------------------------------------------------
 ofVec2f Character::getCurrentPos() const{
     return currentPos;
 }
+
+
 
 

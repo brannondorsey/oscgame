@@ -15,10 +15,7 @@ class Gui {
     
     public:
     
-        Gui();
-        //Gui(int widgetWidth);
-        //~Gui();
-    
+        Gui(){};
         void setup(int width);
         void update();
         void draw();

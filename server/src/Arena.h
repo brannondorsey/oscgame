@@ -28,26 +28,42 @@ class Arena{
         
         bool hasExpiredCharacters();
     
+        int getWidth();
+        int getHeight();
+        int getStartX();
+    
+        bool scoreChanged();
+    
         vector<Character> getExpiredCharacters();
+        vector<Character> getCharacters();
     
     private:
     
         int numCoins;
+        int height;
+        int width;
+    
+        float coinReginRate;
+    
+        bool scoreChange;
     
         vector<Character> expiredCharacters;
         vector<Character> characters;
         vector<Location> locations;
         vector<Coin> coins;
     
+        ofRectangle bounds;
+
         void updateLocations();
         void updateCharacters();
+        void updateCoins();
         void drawLocations();
         void drawCharacters();
         void drawCoins();
+        void addCoins(int numCoins);
     
         bool characterInArena(const Character& character);
-
-
+        
 };
 
 #endif

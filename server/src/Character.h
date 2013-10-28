@@ -28,10 +28,13 @@ class Character{
         void update();
         void draw();
         void addCoin();
+        void setCoins(int numCoins);
     
         int getCoins();
         float getSize() const;
+        ofColor getColor();
         ofVec2f getCurrentPos() const;
+        string getPlayerName();
         string getClientIP() const;
     
         bool isFinished();

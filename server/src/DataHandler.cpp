@@ -62,6 +62,7 @@ void DataHandler::receiveMessages(){
              green
              blue
              */
+            
             int gameFieldWidth = m.getArgAsInt32(0);
             int gameFieldHeight = m.getArgAsInt32(1);
             vector<string> split = ofSplitString(m.getArgAsString(2), ",");
@@ -71,7 +72,6 @@ void DataHandler::receiveMessages(){
             int green = m.getArgAsInt32(4);
             int blue = m.getArgAsInt32(5);
             ofPoint translated = Translator::getArenaPoint(x, y, gameFieldWidth, gameFieldHeight);
-            cout<<"TRANSLATED X IS "<<ofToString(translated.x)<<endl;
             newLocations.push_back(Location(translated.x, translated.y, red, green, blue, bgColor));
             
         }else if(m.getAddress() == "/character added"){

@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "DataHandler.h"
 #include "Arena.h"
+#include "Scoreboard.h"
 
 class testApp : public ofBaseApp{
 
@@ -27,5 +28,5 @@ class testApp : public ofBaseApp{
         ofColor bgColor;
         DataHandler dataHand;
         Arena arena;
-        
+        Scoreboard scoreboard;
 };

@@ -40,6 +40,7 @@ void Location::update(){
         timer.startTimer();
         started = true;
     }
+    cout<<"The time left is "<<ofToString(timer.getTimeLeftInMillis())<<endl;
     // if max size reached
     if(radius >= maxRadius){
         modifier = -modifier;
@@ -63,5 +64,7 @@ void Location::draw(){
 
 //--------------------------------------------------------------
 bool Location::finishedDisplaying(){
-    return timer.isTimerFinished() || radius < 0;
+    //cout<<ofToString(radius)<<endl;
+    if(!started) return false;
+    else return timer.isTimerFinished() || radius < 0;
 }

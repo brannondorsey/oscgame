@@ -10,15 +10,17 @@
 
 Arena::Arena(){
     
-    numCoins = 20;
+    numCoins = 25;
+    coinReginRate = .4; // 0 - 1
     coins.resize(numCoins);
     
+    height = ofGetHeight();
+    width = height*1.33;
+
+    bounds = ofRectangle(ofGetWidth() - getWidth(), ofGetHeight() - getHeight(), getWidth() , getHeight());
+    
     ofSeedRandom();
-    for(int i = 0; i < numCoins; i++){
-        int x = (int) ofRandomWidth();
-        int y = (int) ofRandomHeight();
-        coins[i] = Coin(x, y);
-    }
+    addCoins(numCoins);
 }
 
 //--------------------------------------------------------------
@@ -26,18 +28,14 @@ void Arena::update(){
     updateCharacters();
     updateLocations();
     
-    //loop through all coins and see if characters have hit them
-    for(int i = 0; i < coins.size(); i++){
-        Coin coin = coins[i];
-        
-        for(int j = 0; j < characters.size(); j++){
-            if(coin.intersects(characters[j])){
-                characters[j].addCoin();
-                //remove that coin from the vector
-                coins.erase(coins.begin() + i);
-            }
-        }
+    //every half second...
+    if(ofGetFrameNum() % 30 == 0){
+        //cout<<ofToString(ofGetFrameNum())<<endl;
+        if(ofRandom(1) < coinReginRate) addCoins(1);
     }
+    updateCoins();
+        
+    scoreChange = false;
 }
 
 //--------------------------------------------------------------
@@ -63,7 +61,9 @@ void Arena::addCharacter(const Character& newCharacter){
 void Arena::updateLocations(){
     for(int i = 0; i < locations.size(); i++){
         locations[i].update();
+        cout<<"I am updating a location"<<endl;
         if(locations[i].finishedDisplaying()){
+            cout<<"I removed the location because the animation was over"<<endl;
             locations.erase(locations.begin() + i);
         }
     }
@@ -82,8 +82,30 @@ void Arena::updateCharacters(){
 }
 
 //--------------------------------------------------------------
+void Arena::updateCoins(){
+    //loop through all coins and see if characters have hit them
+    for(int i = 0; i < coins.size(); i++){
+        Coin coin = coins[i];
+        
+        for(int j = 0; j < characters.size(); j++){
+            if(coin.intersects(characters[j])){
+                
+                //add the score to the character
+                characters[j].addCoin();
+                
+                //remove that coin from the vector
+                coins.erase(coins.begin() + i);
+                
+                scoreChange = true;
+            }
+        }
+    }
+}
+
+//--------------------------------------------------------------
 void Arena::drawLocations(){
     for(int i = 0; i < locations.size(); i++){
+        cout<<"I should have drawn"<<endl;
         locations[i].draw();
     }
 }
@@ -103,6 +125,17 @@ void Arena::drawCoins(){
 }
 
 //--------------------------------------------------------------
+void Arena::addCoins(int numCoins){
+    int prevSize = coins.size();
+    coins.resize(prevSize+numCoins);
+    for(int i = prevSize; i < prevSize+numCoins; i++){
+        int x = (int) ofRandom(bounds.x, getWidth() + bounds.x + 1);
+        int y = (int) ofRandom(getHeight());
+        coins[i] = Coin(x, y);
+    }
+}
+
+//--------------------------------------------------------------
 bool Arena::hasExpiredCharacters(){
     return expiredCharacters.size() > 0;
 }
@@ -115,6 +148,31 @@ bool Arena::characterInArena(const Character& character){
         if(existingCharacterIP == characterIP) return true;
     }
     return false;
+}
+
+//--------------------------------------------------------------
+bool Arena::scoreChanged(){
+    return scoreChange;
+}
+
+//--------------------------------------------------------------
+int Arena::getWidth(){
+    return width;
+}
+
+//--------------------------------------------------------------
+int Arena::getHeight(){
+    return height;
+}
+
+//--------------------------------------------------------------
+int Arena::getStartX(){
+    return bounds.x;
+}
+
+//--------------------------------------------------------------
+vector<Character> Arena::getCharacters(){
+    return characters;
 }
 
 //--------------------------------------------------------------
